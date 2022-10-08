@@ -2,8 +2,8 @@ POST http://localhost:7500/auth/signup
 Content-Type: application/json
 
 {
-    "email": "hello@email.com",
-    "password": "87687dsfsdf678g67vyjgvuyvg"
+    "email": "nestjs@email.com",
+    "password": "password"
 }
 
 ### Find all users with email
