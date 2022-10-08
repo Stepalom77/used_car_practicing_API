@@ -5,3 +5,7 @@ Content-Type: application/json
     "email": "ste@email.com",
     "password": "87687678g67vyjgvuyvg"
 }
+
+### Find a user
+
+GET http://localhost:7500/auth/1

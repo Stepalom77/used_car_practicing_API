@@ -7,7 +7,17 @@ export class UsersController {
 
     }
     @Post('/signup')
-    createUser(@Body() body:createUsersDto){
-        this.usersService.createUser(body.email, body.password)
+    create(@Body() body:createUsersDto){
+        return this.usersService.createUser(body.email, body.password)
+    }
+
+    @Get('get-users')
+    findAll(){
+        //this.usersService.findUsers()
+    }
+
+    @Get('/:id')
+    findOne(@Param('id') id:string){
+        return this.usersService.findUser(parseInt(id))
     }
 }
