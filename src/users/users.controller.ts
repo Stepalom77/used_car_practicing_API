@@ -1,4 +1,4 @@
-import { Controller, Body, Get, Post, Patch, Delete, Param } from '@nestjs/common';
+import { Controller, Body, Get, Post, Patch, Delete, Param, Query } from '@nestjs/common';
 import { createUsersDto } from './dtos/create-users.dto';
 import { UsersService } from './users.service';
 @Controller('/auth')
@@ -11,9 +11,9 @@ export class UsersController {
         return this.usersService.createUser(body.email, body.password)
     }
 
-    @Get('get-users')
-    findAll(){
-        //this.usersService.findUsers()
+    @Get()
+    findAll(@Query('email') email:string){
+        return this.usersService.findUsers(email)
     }
 
     @Get('/:id')

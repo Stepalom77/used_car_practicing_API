@@ -2,10 +2,14 @@ POST http://localhost:7500/auth/signup
 Content-Type: application/json
 
 {
-    "email": "ste@email.com",
-    "password": "87687678g67vyjgvuyvg"
+    "email": "hello@email.com",
+    "password": "87687dsfsdf678g67vyjgvuyvg"
 }
+
+### Find all users with email
+
+GET http://localhost:7500/auth?email=hello@email.com
 
 ### Find a user
 
-GET http://localhost:7500/auth/1
+GET http://localhost:7500/auth/3
