@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, AfterInsert, AfterRemove, AfterUpdate } from "typeorm";
 
+
 @Entity()
 export class Users {
     @PrimaryGeneratedColumn()
