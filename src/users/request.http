@@ -17,3 +17,12 @@ GET http://localhost:7500/auth/2
 ### Delete a user
 
 DELETE http://localhost:7500/auth/delete/2
+
+### Update a user
+
+PATCH http://localhost:7500/auth/update/2
+Content-Type: application/json
+
+{
+    "password": "helloThere!"
+}
