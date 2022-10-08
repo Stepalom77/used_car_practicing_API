@@ -20,4 +20,9 @@ export class UsersController {
     findOne(@Param('id') id:string){
         return this.usersService.findUser(parseInt(id))
     }
+
+    @Delete('/delete/:id')
+    delete(@Param('id') id:string){
+        return this.usersService.deleteUser(parseInt(id))
+    }
 }

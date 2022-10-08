@@ -12,4 +12,8 @@ GET http://localhost:7500/auth?email=hello@email.com
 
 ### Find a user
 
-GET http://localhost:7500/auth/3
+GET http://localhost:7500/auth/2
+
+### Delete a user
+
+DELETE http://localhost:7500/auth/delete/2
