@@ -15,6 +15,13 @@ Content-Type: application/json
     "password": "pass"
 }
 
+### Get the currently signed user
+
+GET http://localhost:7500/auth/whoami
+
+### Sign out
+POST http://localhost:7500/auth/signout
+
 ### Find all users with email
 
 GET http://localhost:7500/auth?email=hello@email.com
