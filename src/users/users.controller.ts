@@ -18,6 +18,12 @@ export class UsersController {
     }
 
     @Serialize(UserDto)
+    @Post('/signin')
+    signin(@Body() body:createUsersDto){
+        return this.authService.signin(body.email, body.password)
+    }
+
+    @Serialize(UserDto)
     @Get()
     findAll(@Query('email') email:string){
         return this.usersService.findUsers(email)
