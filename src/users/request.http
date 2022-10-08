@@ -2,8 +2,17 @@ POST http://localhost:7500/auth/signup
 Content-Type: application/json
 
 {
-    "email": "nestjs@email.com",
-    "password": "password"
+    "email": "typescript@email.com",
+    "password": "pass"
+}
+
+### Sign in
+POST http://localhost:7500/auth/signin
+Content-Type: application/json
+
+{
+    "email": "typescript@email.com",
+    "password": "pass"
 }
 
 ### Find all users with email

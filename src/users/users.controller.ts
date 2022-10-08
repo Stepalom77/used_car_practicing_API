@@ -1,35 +1,40 @@
-import { Controller, Body, Get, Post, Patch, Delete, Param, Query, NotFoundException } from '@nestjs/common';
+import { Controller, Body, Get, Post, Patch, Delete, Param, Query, NotFoundException, Session } from '@nestjs/common';
 import { createUsersDto } from './dtos/create-users.dto';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { UsersService } from './users.service';
 import { UserDto } from './dtos/user.dto';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { AuthService } from './auth.service';
+@Serialize(UserDto)
 @Controller('/auth')
 export class UsersController {
     constructor(private usersService: UsersService, private authService:AuthService){
-
     }
 
-    @Serialize(UserDto)
+    @Get('/whoami')
+    whoAmI(@Session() session:any){
+            return this.usersService.findUser(session.userId)
+        }
+    
     @Post('/signup')
-    create(@Body() body:createUsersDto){
-        return this.authService.signup(body.email, body.password)
+    async create(@Body() body:createUsersDto, @Session() session:any){
+        const user = await this.authService.signup(body.email, body.password)
+        session.userId = user.id
+        return user
     }
-
-    @Serialize(UserDto)
+    
     @Post('/signin')
-    signin(@Body() body:createUsersDto){
-        return this.authService.signin(body.email, body.password)
+    async signin(@Body() body:createUsersDto, @Session() session:any){
+        const user = await this.authService.signin(body.email, body.password)
+        session.userId = user.id
+        return user
     }
-
-    @Serialize(UserDto)
+    
     @Get()
     findAll(@Query('email') email:string){
         return this.usersService.findUsers(email)
     }
-
-    @Serialize(UserDto)
+    
     @Get('/:id')
     async findOne(@Param('id') id:string){
         console.log('handler is running')
@@ -39,7 +44,7 @@ export class UsersController {
         }
         return user
     }
-    @Serialize(UserDto)
+    
     @Delete('/delete/:id')
     async delete(@Param('id') id:string){
         const deletedUser = await this.usersService.findUser(parseInt(id))
@@ -48,7 +53,7 @@ export class UsersController {
         }
         return this.usersService.deleteUser(parseInt(id))
     }
-    @Serialize(UserDto)
+    
     @Patch('/update/:id')
     async update(@Param('id') id:string, @Body() body:UpdateUserDto){
         const updatedUser = await this.usersService.findUser(parseInt(id))
