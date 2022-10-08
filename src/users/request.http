@@ -1,0 +1,7 @@
+POST http://localhost:7500/auth/signup
+Content-Type: application/json
+
+{
+    "email": "pal@email.com",
+    "password": "efunqeuivdfbdwun"
+}
