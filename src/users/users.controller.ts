@@ -46,7 +46,6 @@ export class UsersController {
     
     @Get('/:id')
     async findOne(@Param('id') id:string){
-        console.log('handler is running')
         const user = await this.usersService.findUser(parseInt(id))
         if(!user){
             throw new NotFoundException('The user you are trying to find does not exists')
