@@ -2,8 +2,8 @@ POST http://localhost:7500/auth/signup
 Content-Type: application/json
 
 {
-    "email": "typescript@email.com",
-    "password": "pass"
+    "email": "testadmin@email.com",
+    "password": "passs"
 }
 
 ### Sign in
@@ -11,8 +11,8 @@ POST http://localhost:7500/auth/signin
 Content-Type: application/json
 
 {
-    "email": "typescript@email.com",
-    "password": "pass"
+    "email": "testadmin@email.com",
+    "password": "passs"
 }
 
 ### Get the currently signed user
