@@ -25,13 +25,7 @@ const  cookieSession = require('cookie-session');
           entities: [Users, Reports]
         }
       }
-    })
-    /*TypeOrmModule.forRoot({
-    type:'sqlite',
-    database:'db.sqlite',
-    entities: [Users, Reports],
-    synchronize:true
-  })*/ ,UsersModule, ReportsModule],
+    }),UsersModule, ReportsModule],
   controllers: [AppController],
   providers: [AppService,
   {
